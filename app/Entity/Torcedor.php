@@ -26,6 +26,7 @@ class Torcedor{
                                         'nome'      => $this->nome,
                                         'documento' => $this->documento,
                                         'telefone'  => $this->telefone,
+                                        'email'     => $this->email,
                                         'cep'       => $this->cep,
                                         'endereco'  => $this->endereco,
                                         'cidade'    => $this->cidade,
@@ -40,6 +41,7 @@ class Torcedor{
         return (new Database('torcedores'))->update('id = '.$this->id,[
                                                                         'nome'      => $this->nome,
                                                                         'documento' => $this->documento,
+                                                                        'email'     => $this->email,
                                                                         'telefone'  => $this->telefone,
                                                                         'cep'       => $this->cep,
                                                                         'endereco'  => $this->endereco,

@@ -1,20 +1,20 @@
 <?php
 require __DIR__.'/vendor/autoload.php';
 
-define('TITLE', 'Editar Torcedor');
-
 use \App\Entity\Torcedor; 
 
 //Validação do ID
 if(!isset($_GET['id']) or !is_numeric($_GET['id'])){
+    echo "<pre>";echo "Estou no IF";print_r($_GET['id']);echo "</pre>";exit;
     header('location: index.php?status=error');
 }
 
 $torcedor = Torcedor::getTorcedor($_GET['id']);
 
+
+
 //validar torcedor
 if (!$torcedor instanceof Torcedor) {
-    echo "<pre>"; print_r($torcedor);echo "</pre>";exit;
     header('location: index.php?status=error');
     exit;
 }
@@ -32,8 +32,8 @@ if (isset($_POST['nome'], $_POST['documento'], $_POST['email'], $_POST['telefone
     $torcedor->cidade     = $_POST['cidade'];
     $torcedor->uf     = $_POST['uf'];
     $torcedor->ativo     = $_POST['ativo'];
-    //echo "<pre>"; print_r($torcedor);echo "</pre>";exit;
-   // $torcedor->atualizar();
+    
+    $torcedor->atualizar();
 
     header('Location: index.php?status=success');
     exit;

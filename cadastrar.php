@@ -9,16 +9,17 @@ if (isset($_POST['nome'], $_POST['documento'], $_POST['email'], $_POST['telefone
 
     $torcedor = new Torcedor;
 
-    $torcedor->nome     = $_POST['nome'];
-    $torcedor->documento     = $_POST['documento'];
-    $torcedor->email     = $_POST['email'];
+    $torcedor->nome         = $_POST['nome'];
+    $torcedor->documento    = $_POST['documento'];
+    $torcedor->email        = $_POST['email'];
     $torcedor->telefone     = $_POST['telefone'];
-    $torcedor->cep     = $_POST['cep'];
+    $torcedor->cep          = $_POST['cep'];
     $torcedor->endereco     = $_POST['endereco'];
-    $torcedor->cidade     = $_POST['cidade'];
-    $torcedor->uf     = $_POST['uf'];
-    $torcedor->ativo     = $_POST['ativo'];
-    
+    $torcedor->cidade       = $_POST['cidade'];
+    $torcedor->uf           = $_POST['uf'];
+    $torcedor->ativo        = $_POST['ativo'];
+
+        
     $torcedor->cadastrar();
 
     header('Location: index.php?status=success');

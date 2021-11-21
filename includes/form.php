@@ -47,7 +47,7 @@
                     <div class="col-4">
                         <label for="uf">Estado - UF</label>
                         <select class="form-control" id="uf" name="uf"  required>
-                            <option value="<?=$torcedor->uf?>"<?=$torcedor->uf?>"</option>
+                            <option value="<?=$torcedor->uf?>"><?=$torcedor->uf?></option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
                             <option value="AP">AP</option>
