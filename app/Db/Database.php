@@ -77,8 +77,6 @@ class Database{
 
         $query = 'UPDATE '.$this->table.' SET '.implode('=?,',$fields).'=? WHERE '.$where;
 
-        echo $query;
-        exit;
         $this->execute($query, array_values($values));
 
         return true;
