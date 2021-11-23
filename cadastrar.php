@@ -1,13 +1,13 @@
 <?php
 require __DIR__.'/vendor/autoload.php';
 
-define('TITLE', 'Cadastrar Torcedor');
+define('TITLE','Cadastrar Torcedor');
 
-use \App\Entity\Torcedor; 
+use \App\Entity\Torcedor;
+
+$torcedor = new Torcedor;
 
 if (isset($_POST['nome'], $_POST['documento'], $_POST['email'], $_POST['telefone'], $_POST['cep'], $_POST['endereco'], $_POST['cidade'], $_POST['uf'], $_POST['ativo'] )) {
-
-    $torcedor = new Torcedor;
 
     $torcedor->nome         = $_POST['nome'];
     $torcedor->documento    = $_POST['documento'];
@@ -27,5 +27,5 @@ if (isset($_POST['nome'], $_POST['documento'], $_POST['email'], $_POST['telefone
 }
 
 include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/list.php';
+include __DIR__.'/includes/form.php';
 include __DIR__.'/includes/footer.php';

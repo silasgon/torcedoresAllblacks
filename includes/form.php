@@ -3,7 +3,7 @@
         <div class="container">
 
             <div class="container center">
-                <h1>Editar Torcedor AllBlacks</h1>
+                <h3><?=TITLE?> AllBlacks</h3>
             </div>
             <form method="post" action="editar.php" class="was-validated" novalidate>
                 <div class="form-group">
@@ -84,7 +84,7 @@
                         <label for="email">Situação cadastral</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="ativo" value="1" <?=$torcedor->ativo == '1' ? 'checked' : ''?>>
+                        <input class="form-check-input" type="checkbox" name="ativo" value="1" >
                         <label class="form-check-label" for="ativo">Ativo</label>
                     </div>
                     <div class="form-check form-check-inline">

@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-
-
 use App\Db\Database;
 use PDO;
 
@@ -12,6 +10,7 @@ class Torcedor{
     public $id;
     public $nome; 
     public $documento;
+    public $email;
     public $telefone;
     public $cep;
     public $endereco;
@@ -25,8 +24,8 @@ class Torcedor{
         $this->id = $database->insert([
                                         'nome'      => $this->nome,
                                         'documento' => $this->documento,
-                                        'telefone'  => $this->telefone,
                                         'email'     => $this->email,
+                                        'telefone'  => $this->telefone,
                                         'cep'       => $this->cep,
                                         'endereco'  => $this->endereco,
                                         'cidade'    => $this->cidade,
