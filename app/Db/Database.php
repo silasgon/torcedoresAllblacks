@@ -50,7 +50,8 @@ class Database{
         //Dados a serem inseridos
         $fields = array_keys($values);
         $binds = array_pad([], count($fields), '?');
-        
+
+    
         //Query do DB
         $query = 'INSERT INTO '.$this->table.' ('.implode(',', $fields).') VALUES ('.implode(',',$binds).')';
 
@@ -66,6 +67,7 @@ class Database{
         $where = strlen($where) ? 'WHERE '.$where : '';
         $order = strlen($order) ? 'ORDER BY '.$order : '';
         $limit = strlen($limit) ? 'LIMIT '.$limit : '';
+        $fields = strlen($fields) ? 'LIMIT '.$fields : '*';
 
         $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
 

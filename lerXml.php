@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+ini_set('default_charset', 'UTF-8');
 
 use \App\Entity\Torcedor;
 
@@ -13,40 +14,31 @@ if (isset($_POST['acao'])) {
     $arquivoNovo = explode(".", $arquivo['name']);
 
     if ($arquivoNovo[sizeof($arquivoNovo) - 1] != 'xml') {
-        //header('location: index.php?status=error');
-        die("Você não pode fazer upload deste tipo de arquivo");
+        header('location: lerXml.php?status=error1');
+        exit;
     } else {
         move_uploaded_file($arquivo['tmp_name'], './App/File/uploads/' . $arquivo['name']);
         $xml = simplexml_load_file(__DIR__ . './App/File/uploads/' . $arquivo['name']);
 
-        $cont=0;
-        for ($i=0; $i < count($xml); $i++) { 
-            $torcedor->nome         = $xml->torcedor[2]->attributes()->nome;
-            $torcedor->documento    = $xml->torcedor[2]->attributes()->documento;
-            $torcedor->cep          = $xml->torcedor[2]->attributes()->cep;
-            $torcedor->endereco     = $xml->torcedor[2]->attributes()->endereco;
-            $torcedor->bairro       = $xml->torcedor[2]->attributes()->bairro;
-            $torcedor->cidade       = $xml->torcedor[2]->attributes()->cidade;
-            $torcedor->uf           = $xml->torcedor[2]->attributes()->uf;
-            $torcedor->telefone     = $xml->torcedor[2]->attributes()->telefone;
-            $torcedor->email        = $xml->torcedor[2]->attributes()->email;
-            $torcedor->ativo        = $xml->torcedor[2]->attributes()->ativo;
+        foreach ($xml->children() as $torcedores) {
+           
+            $torcedor->nome= $torcedores->attributes()->nome;
+            $torcedor->documento= $torcedores->attributes()->documento;
+            $torcedor->cep=  $torcedores->attributes()->cep;
+            $torcedor->endereco= $torcedores->attributes()->endereco;
+            $torcedor->bairro= $torcedores->attributes()->bairro;
+            $torcedor->cidade = $torcedores->attributes()->cidade;
+            $torcedor->uf = $torcedores->attributes()->uf;
+            $torcedor->telefone = $torcedores->attributes()->telefone;
+            $torcedor->email = $torcedores->attributes()->email;
+            $torcedor->ativo = $torcedores->attributes()->ativo;
+
+            $torcedor->cadastrar();
 
             $cont++;
-            echo $torcedor;
         }
-
-        echo $cont;
-
-        foreach ($xml->torcedor->attributes() as $torcedor => $torc) {
-            echo "<pre>";
-            echo "$torcedor = $torc";
-            echo "</pre>";
-
-        }
-  
-
-        // header('location: index.php?status=sucess');
+        
+         header('location: lerXml.php?status=sucess');
     }
 }
 

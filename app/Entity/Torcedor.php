@@ -22,6 +22,7 @@ class Torcedor{
     public function cadastrar(){
 
         $database = new Database('torcedores');
+
         $this->id = $database->insert([
                                         'nome'      => $this->nome,
                                         'documento' => $this->documento,
@@ -65,6 +66,15 @@ class Torcedor{
     public static function getTorcedor($id){
         return (new Database('torcedores'))->select('id = '.$id)
                                             ->fetchObject(self::class);
+    }
+
+    public static function getEmailAtivo($where = null, $fields = 'email'){
+        return (new Database('torcedores'))->select($where, $fields)
+                                            ->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
+    public static function getEmailInativo($where = null, $order = null, $limit = null, $fields = 'email'){
+        return (new Database('torcedores'))->select($where, $order, $limit)
+                                            ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 
 }
