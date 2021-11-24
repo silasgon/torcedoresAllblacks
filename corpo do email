@@ -20,3 +20,18 @@
     </div>
   </body>
   
+
+
+          
+  $torcedor->nome         = $xml->torcedor[2]->attributes()->nome;
+  $torcedor->documento    = $xml->torcedor[2]->attributes()->documento;
+  $torcedor->cep          = $xml->torcedor[2]->attributes()->cep;
+  $torcedor->endereco     = $xml->torcedor[2]->attributes()->endereco;
+  $torcedor->bairro       = $xml->torcedor[2]->attributes()->bairro;
+  $torcedor->cidade       = $xml->torcedor[2]->attributes()->cidade;
+  $torcedor->uf           = $xml->torcedor[2]->attributes()->uf;
+  $torcedor->telefone     = $xml->torcedor[2]->attributes()->telefone;
+  $torcedor->email        = $xml->torcedor[2]->attributes()->email;
+  $torcedor->ativo        = $xml->torcedor[2]->attributes()->ativo;
+
+  //$torcedor->cadastrar();

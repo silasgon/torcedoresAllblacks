@@ -14,6 +14,7 @@ class Torcedor{
     public $telefone;
     public $cep;
     public $endereco;
+    public $bairro;
     public $cidade;
     public $uf;
     public $ativo;
@@ -27,6 +28,7 @@ class Torcedor{
                                         'email'     => $this->email,
                                         'telefone'  => $this->telefone,
                                         'cep'       => $this->cep,
+                                        'bairro'    => $this->bairro,
                                         'endereco'  => $this->endereco,
                                         'cidade'    => $this->cidade,
                                         'uf'        => $this->uf,
@@ -44,10 +46,15 @@ class Torcedor{
                                                                         'telefone'  => $this->telefone,
                                                                         'cep'       => $this->cep,
                                                                         'endereco'  => $this->endereco,
+                                                                        'bairro'    => $this->bairro,
                                                                         'cidade'    => $this->cidade,
                                                                         'uf'        => $this->uf,
                                                                         'ativo'     => $this->ativo,
                                                                     ]);
+    }
+
+    public function excluir(){
+        return (new Database('torcedores'))->delete('id = '.$this->id);
     }
 
     public static function getTorcedores($where = null, $order = null, $limit = null){

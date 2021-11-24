@@ -14,6 +14,7 @@ if (isset($_POST['nome'], $_POST['documento'], $_POST['email'], $_POST['telefone
     $torcedor->email        = $_POST['email'];
     $torcedor->telefone     = $_POST['telefone'];
     $torcedor->cep          = $_POST['cep'];
+    $torcedor->bairro       = $_POST['bairro'];
     $torcedor->endereco     = $_POST['endereco'];
     $torcedor->cidade       = $_POST['cidade'];
     $torcedor->uf           = $_POST['uf'];

@@ -26,17 +26,19 @@ CREATE TABLE IF NOT EXISTS `torcedores` (
   `telefone` varchar(15) DEFAULT NULL,
   `cep` varchar(9) NOT NULL,
   `endereco` varchar(100) NOT NULL,
+  `bairro` varchar(50) NOT NULL,
   `cidade` varchar(50) NOT NULL,
   `uf` varchar(2) NOT NULL,
   `ativo` enum('1','') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela allblacks_db.torcedores: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela allblacks_db.torcedores: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `torcedores` DISABLE KEYS */;
-INSERT INTO `torcedores` (`id`, `nome`, `documento`, `email`, `telefone`, `cep`, `endereco`, `cidade`, `uf`, `ativo`) VALUES
-	(1, 'Silas GonÃ§alves Dos Reis', '12345679787', NULL, '+5563992785357', '77024088', '806 Sul Ala 10A, Res.Morada Do Sol BL08 AP104', 'Palmas', 'TO', '1'),
-	(2, 'Silas GonÃ§alves dos Reis', '12345678998', 'silastalk@gmail.com', '639927853571', '77024-574', '1306 Sul Alameda 13A lote 09', 'Palmas', 'TO', '');
+INSERT INTO `torcedores` (`id`, `nome`, `documento`, `email`, `telefone`, `cep`, `endereco`, `bairro`, `cidade`, `uf`, `ativo`) VALUES
+	(4, 'Silas GonÃ§alves Dos Reis ', '12345678998', 'silastalk@gmail.com', '+5563992785357', '77024088', '806 Sul Ala 10A, Res.Morada Do Sol BL08 AP104', 'Plano Diretor Sul', 'Palmas', 'TO', '1'),
+	(5, 'philipe passarim', '98765432112', 'ph@gmail.com', ' +556399998888', '77088099', 'casa da mae', 'taquarussu', 'Palmas', 'TO', '1'),
+	(6, 'fulanoqw', '65498712365', 'fulano2@gmail.com', '9999999934', '12345654', 'Av. de fiado', 'centro', 'nova cidade', 'PA', '');
 /*!40000 ALTER TABLE `torcedores` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

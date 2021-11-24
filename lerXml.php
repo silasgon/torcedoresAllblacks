@@ -1,6 +1,9 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
 
 use \App\Entity\Torcedor;
+
+$torcedor = new Torcedor;
 
 $arquivo;
 //Validação do POST de Envio de arquivo
@@ -16,39 +19,36 @@ if (isset($_POST['acao'])) {
         move_uploaded_file($arquivo['tmp_name'], './App/File/uploads/' . $arquivo['name']);
         $xml = simplexml_load_file(__DIR__ . './App/File/uploads/' . $arquivo['name']);
 
-        $tt;
-        $countTorcedores = 0;
-        foreach ($xml->children() as $torcedores) {
-            $countTorcedores++;
+        $cont=0;
+        for ($i=0; $i < count($xml); $i++) { 
+            $torcedor->nome         = $xml->torcedor[2]->attributes()->nome;
+            $torcedor->documento    = $xml->torcedor[2]->attributes()->documento;
+            $torcedor->cep          = $xml->torcedor[2]->attributes()->cep;
+            $torcedor->endereco     = $xml->torcedor[2]->attributes()->endereco;
+            $torcedor->bairro       = $xml->torcedor[2]->attributes()->bairro;
+            $torcedor->cidade       = $xml->torcedor[2]->attributes()->cidade;
+            $torcedor->uf           = $xml->torcedor[2]->attributes()->uf;
+            $torcedor->telefone     = $xml->torcedor[2]->attributes()->telefone;
+            $torcedor->email        = $xml->torcedor[2]->attributes()->email;
+            $torcedor->ativo        = $xml->torcedor[2]->attributes()->ativo;
 
-            echo "<pre>";
-            echo "Verificando arquivo xml";
-            print_r($torcedores);
-            //var_dump($torcedores);
-            echo $countTorcedores;
-            echo "</pre>";
-            //exit;
+            $cont++;
+            echo $torcedor;
         }
-        exit;
+
+        echo $cont;
+
+        foreach ($xml->torcedor->attributes() as $torcedor => $torc) {
+            echo "<pre>";
+            echo "$torcedor = $torc";
+            echo "</pre>";
+
+        }
+  
 
         // header('location: index.php?status=sucess');
     }
 }
-/* 
-
-function lerArquivoXml($arquivo)
-{
-
-    $xml = simplexml_load_file(__DIR__ . './uploads/' . $arquivo['name']);
-    echo "<pre>";
-    echo "Verificando arquivo xml";
-    print_r($xml);
-    echo "</pre>";
-    exit;
-}
- */
-
-
 
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/files.php';

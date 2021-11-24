@@ -36,6 +36,10 @@
                         <label for="endereco">Endereço</label>
                         <input type="text" class="form-control" id="endereco" name="endereco" value="<?= $torcedor->endereco ?>" placeholder="Endereço do torcedor" required>
                     </div>
+                    <div class="col-8">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" class="form-control" id="endereco" name="bairro" value="<?= $torcedor->bairro ?>" placeholder="Bairro do torcedor" required>
+                    </div>
                 </div>
                 <br>
                 <div class="form-row">

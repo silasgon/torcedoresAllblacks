@@ -1,5 +1,18 @@
 <?php
 
+$messagem = '';
+if (isset($_GET['status'])) {
+    switch ($_GET['status']) {
+        case 'success':
+            $messagem = '<div class="alert alert-success">Ação executada com sucesso!</div>';
+            break;
+        case 'error':
+            $messagem = '<div class="alert alert-danger">Ação não executada!</div>';
+            break;
+    }
+    # code...
+}
+
 $resultados = '';
 foreach($torcedores as $torcedor){
     $resultados .= '<tr>
@@ -10,6 +23,7 @@ foreach($torcedores as $torcedor){
                         <td>'.$torcedor->telefone.'</td>
                         <td>'.$torcedor->cep.'</td>
                         <td>'.$torcedor->endereco.'</td>
+                        <td>'.$torcedor->bairro.'</td>
                         <td>'.$torcedor->cidade.'</td>
                         <td>'.$torcedor->uf.'</td>
                         <td>'.($torcedor->ativo == 1 ? 'Ativo' : 'Inativo').'</td>
@@ -28,7 +42,7 @@ foreach($torcedores as $torcedor){
 
 
 <main>
-
+<?=$messagem ?>
     <section>
 
         <table class="table mt-2">
@@ -41,6 +55,7 @@ foreach($torcedores as $torcedor){
                     <th>Telefone</th>
                     <th>Cep</th>
                     <th>Endereco</th>
+                    <th>Bairro</th>
                     <th>Cidade</th>
                     <th>UF</th>
                     <th>Ativo</th>
