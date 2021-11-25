@@ -10,7 +10,6 @@ if (isset($_GET['status'])) {
             $messagem = '<div class="alert alert-danger">Ação não executada!</div>';
             break;
     }
-    # code...
 }
 ?>
 
@@ -37,10 +36,10 @@ if (isset($_GET['status'])) {
                             <input type="radio" class="custom-control-input" id="customControlValidation2" name="email" required>
                             <label class="custom-control-label" for="customControlValidation2">Todos torcedores</label>
                         </div>
-                        <div class="custom-control custom-radio mb-3">
+ <!--                        <div class="custom-control custom-radio mb-3">
                             <input type="radio" class="custom-control-input" id="customControlValidation3" name="email2" required>
                             <label class="custom-control-label" for="customControlValidation3">Torcedores Ativos</label>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
@@ -53,7 +52,7 @@ if (isset($_GET['status'])) {
                     </div>
 
                     <label for="validationCustom02">Comunicado</label>
-                    <textarea class="form-control" name="comunicado" placeholder="Digite o comunicado" required></textarea>
+                    <textarea class="form-control" name="texto" placeholder="Digite o comunicado" required></textarea>
                 </div>
                 <br>
                 <hr>

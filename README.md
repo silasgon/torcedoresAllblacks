@@ -4,7 +4,7 @@
 Aplicação desenvolvida para resposta ao desafio tecnico de php.
 
 ## Banco de Dados
-Há um backup do banco de dados para ser importado no seu sgbd.
+Há "backup_DB.sql" um backup do banco de dados para ser importado no seu sgbd.
 As credenciais do banco de dados estão no arquivo ./app/Db/Database.php e você deve alterar para as configurações do seu ambiente (HOST, NAME, USER e PASS).
 
 ## Composer
