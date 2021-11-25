@@ -63,15 +63,13 @@ class Database{
     }
 
     public function select($where = null, $order = null, $limit = null, $fields = '*'){
-
+        
         $where = strlen($where) ? 'WHERE '.$where : '';
         $order = strlen($order) ? 'ORDER BY '.$order : '';
         $limit = strlen($limit) ? 'LIMIT '.$limit : '';
         
         $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
-
-        echo "<pre>"; echo "Estou na query"; print_r($query);echo "</pre>";exit;
-
+        
         return $this->execute($query);
     }
 

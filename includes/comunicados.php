@@ -1,4 +1,21 @@
+<?php
+
+$messagem = '';
+if (isset($_GET['status'])) {
+    switch ($_GET['status']) {
+        case 'success':
+            $messagem = '<div class="alert alert-success">Email enviado com sucesso!</div>';
+            break;
+        case 'error':
+            $messagem = '<div class="alert alert-danger">Ação não executada!</div>';
+            break;
+    }
+    # code...
+}
+?>
+
 <main>
+    <?= $messagem ?>
     <section>
         <div class="container center mt-3">
             <div class="text-center">
@@ -41,12 +58,9 @@
                 <br>
                 <hr>
                 <div class="form-group text-center">
-                    <button class="btn btn-primary" type="submit">Enviar Email</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Enviar Email</button>
                 </div>
-
             </form>
-
-
         </div>
     </section>
 </main>

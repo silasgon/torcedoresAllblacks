@@ -1,7 +1,7 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
-use \App\Entity\Torcedor; 
+use \App\Entity\Torcedor;
 use \PHPMailer\PHPMailer\PHPMailer;
 
 const USER = 'talkallblacks@gmail.com';
@@ -23,7 +23,7 @@ $mail->isSMTP(true);
 //SMTP::DEBUG_OFF = off (for production use)
 //SMTP::DEBUG_CLIENT = client messages
 //SMTP::DEBUG_SERVER = client and server messages
-$mail->SMTPDebug = 2;
+$mail->SMTPDebug = 0;
 
 //Set the hostname of the mail server
 $mail->Host = 'smtp.gmail.com';
@@ -71,17 +71,17 @@ if (isset($_POST['comunicado'], $_POST['titulo'], $_POST['comunicado'])) {
     $comunicado     = $_POST['comunicado'];
 }
 
-//$mail->addAddress('talkallblacks@gmail.com', 'TEste de envio');
-
 //destinatários
-$addresses = is_array($addresses) ? $addresses : [$addresses];
-foreach ($torcedor as $t) { //Tentar salvar os email em um array
-    echo "<pre>"; print_r($t);echo "</pre>";
+foreach ($torcedor as $emails) {
+    foreach ($emails as $email) {
+        $addresses = is_array($email) ? $email : [$email];
+        foreach ($addresses as $address) {
+            $mail->addAddress($address);
+        }
+    }
 }
-//echo "<pre>"; print_r($torcedor);echo "</pre>";exit;
-foreach ($addresses as $address) {
-    $mail->addAddress($address);
-}
+
+//$mail->addAddress('talkallblacks@gmail.com', 'TEste de envio');
 
 $body = '<body>
 <div class="bg-black">
@@ -96,15 +96,15 @@ $mail->Subject = $titulo;
 $mail->Body = $body;
 
 
-//$mail->msgHTML(__DIR__ . '\App\File\email\notices.html');
-
-
 $mail->AltBody = '';
 
 
-
 if (!$mail->send()) {
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
+    header('location: comunicados.php?status=error');
 } else {
-    echo 'Message sent!';
+    header('Location: comunicados.php?status=success');
 }
+
+include __DIR__.'/includes/header.php';
+include __DIR__.'/includes/comunicados.php';
+include __DIR__.'/includes/footer.php';
