@@ -31,9 +31,9 @@ if (isset($_GET['status'])) {
                     <div class="card-body">
                         <form method="post" action="lerXml.php" enctype="multipart/form-data" class="was-validated" novalidate>
                             <div class="form-group">
-                                <label for="exampleFormControlFile1">Selecione um arquivo XML</label>
+                                <label class="" for="exampleFormControlFile1">Selecione um arquivo XML</label>
                                 <input type="file" class="form-control-file mb-1" name="file">
-                                <input type="submit" class="form-control-file" name="acao" value="Enviar">
+                                <input type="submit" class="form-control-file btn-sucess mt-4" name="acao" value="Enviar e carregar dados">
                             </div>
                         </form>
                     </div>

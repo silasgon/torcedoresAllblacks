@@ -67,9 +67,23 @@ class Database{
         $where = strlen($where) ? 'WHERE '.$where : '';
         $order = strlen($order) ? 'ORDER BY '.$order : '';
         $limit = strlen($limit) ? 'LIMIT '.$limit : '';
-        $fields = strlen($fields) ? 'LIMIT '.$fields : '*';
-
+        
         $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
+
+        echo "<pre>"; echo "Estou na query"; print_r($query);echo "</pre>";exit;
+
+        return $this->execute($query);
+    }
+
+    public function selectEmail($where = null, $order = null, $limit = null, $fields = 'email'){
+
+        $where = strlen($where) ? 'WHERE '.$where : '';
+        $order = strlen($order) ? 'ORDER BY '.$order : '';
+        $limit = strlen($limit) ? 'LIMIT '.$limit : '';
+        
+        $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
+
+       // echo "<pre>"; echo "Estou na query"; print_r($query);echo "</pre>";exit;
 
         return $this->execute($query);
     }

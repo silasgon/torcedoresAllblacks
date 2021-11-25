@@ -58,8 +58,8 @@ class Torcedor{
         return (new Database('torcedores'))->delete('id = '.$this->id);
     }
 
-    public static function getTorcedores($where = null, $order = null, $limit = null){
-        return (new Database('torcedores'))->select($where, $order, $limit)
+    public static function getTorcedores($where = null, $order = null, $limit = null, $fields = null){
+        return (new Database('torcedores'))->select($where, $order, $limit, $fields)
                                             ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 
@@ -68,13 +68,9 @@ class Torcedor{
                                             ->fetchObject(self::class);
     }
 
-    public static function getEmailAtivo($where = null, $fields = 'email'){
-        return (new Database('torcedores'))->select($where, $fields)
-                                            ->fetchAll(PDO::FETCH_CLASS, self::class);
-    }
-    public static function getEmailInativo($where = null, $order = null, $limit = null, $fields = 'email'){
-        return (new Database('torcedores'))->select($where, $order, $limit)
-                                            ->fetchAll(PDO::FETCH_CLASS, self::class);
-    }
-
+     public static function getEmailAtivo(){
+        //echo "<pre>"; echo "Estou na consulta"; print_r($fields);echo "</pre>";exit;
+        return (new Database('torcedores'))->selectEmail()
+                                            ->fetchAll(PDO::FETCH_CLASS,self::class);
+    } 
 }

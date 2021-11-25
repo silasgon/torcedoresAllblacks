@@ -56,25 +56,32 @@ $mail->Password = 'Allblacks21';
 //Do not use user-submitted addresses in here
 $mail->setFrom('talkallblacks@gmail.com', 'Allblacks');
 
-$mail->addAddress('talkallblacks@gmail.com', 'TEste de envio');
 
-$torcedor = Torcedor::getEmailAtivo($_POST['email']);
-$torcedor = Torcedor::getEmailInativo($_POST['email2']);
+$torcedor = Torcedor::getEmailAtivo();
+
+//$torcedor = Torcedor::getEmailInativo($_POST['email2']);
 
 $titulo;
 $comunicado;
+
 //Validação post
 if (isset($_POST['comunicado'], $_POST['titulo'], $_POST['comunicado'])) {
 
     $titulo         = $_POST['titulo'];
     $comunicado     = $_POST['comunicado'];
 }
-/*
+
+//$mail->addAddress('talkallblacks@gmail.com', 'TEste de envio');
+
 //destinatários
 $addresses = is_array($addresses) ? $addresses : [$addresses];
+foreach ($torcedor as $t) { //Tentar salvar os email em um array
+    echo "<pre>"; print_r($t);echo "</pre>";
+}
+//echo "<pre>"; print_r($torcedor);echo "</pre>";exit;
 foreach ($addresses as $address) {
     $mail->addAddress($address);
-} */
+}
 
 $body = '<body>
 <div class="bg-black">
