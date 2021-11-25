@@ -1,12 +1,13 @@
 # torcedoresAllblacks
 
-##
+##Motivação
+Aplicação desenvolvida para resposta ao desafio tecnico de php.
 
-##Banco de Dados
+## Banco de Dados
 Há um backup do banco de dados para ser importado no seu sgbd.
 As credenciais do banco de dados estão no arquivo ./app/Db/Database.php e você deve alterar para as configurações do seu ambiente (HOST, NAME, USER e PASS).
 
-##Composer
+## Composer
 Para a aplicação funcionar, é necessário rodar o Composer para que sejam criados os arquivos responsáveis pelo autoload das classes.
 
 Caso não tenha o Composer instalado, baixe pelo site oficial: https://getcomposer.org/download
