@@ -6,7 +6,7 @@ use \PHPMailer\PHPMailer\PHPMailer;
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer();
-$torcedor = Torcedor::getEmailAtivo();
+$torcedor = Torcedor::getEmailTAtivo();
 
 if (isset( $_POST['titulo'], $_POST['comunicado'])) {
 
@@ -54,7 +54,6 @@ if (isset( $_POST['titulo'], $_POST['comunicado'])) {
     //Do not use user-submitted addresses in here
     $mail->setFrom('talkallblacks@gmail.com', 'Allblacks');
 
-
     $titulo   = $_POST['titulo'];
     $texto    = $_POST['texto'];
 
@@ -96,6 +95,6 @@ if (isset( $_POST['titulo'], $_POST['comunicado'])) {
     echo "Ta quebrado";
 }
 
-include __DIR__ . '/includes/header.php';
+/* include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/comunicados.php';
-include __DIR__ . '/includes/footer.php';
+include __DIR__ . '/includes/footer.php'; */

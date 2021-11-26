@@ -14,26 +14,30 @@ if (isset($_GET['status'])) {
 }
 
 $resultados = '';
-foreach($torcedores as $torcedor){
+foreach ($torcedores as $torcedor) {
     $resultados .= '<tr>
-                        <td>'.$torcedor->id.'</td>
-                        <td>'.$torcedor->nome.'</td>
-                        <td>'.$torcedor->documento.'</td>
-                        <td>'.$torcedor->email.'</td>
-                        <td>'.$torcedor->telefone.'</td>
-                        <td>'.$torcedor->cep.'</td>
-                        <td>'.$torcedor->endereco.'</td>
-                        <td>'.$torcedor->bairro.'</td>
-                        <td>'.$torcedor->cidade.'</td>
-                        <td>'.$torcedor->uf.'</td>
-                        <td>'.($torcedor->ativo == 1 ? 'Ativo' : 'Inativo').'</td>
+                        <td>' . $torcedor->id . '</td>
+                        <td>' . $torcedor->nome . '</td>
+                        <td>' . $torcedor->documento . '</td>
+                        <td>' . $torcedor->email . '</td>
+                        <td>' . $torcedor->telefone . '</td>
+                        <td>' . $torcedor->cep . '</td>
+                        <td>' . $torcedor->endereco . '</td>
+                        <td>' . $torcedor->bairro . '</td>
+                        <td>' . $torcedor->cidade . '</td>
+                        <td>' . $torcedor->uf . '</td>
+                        <td>' . ($torcedor->ativo == 1 ? 'Ativo' : 'Inativo') . '</td>
                         <td>
-                            <a href="editar.php?id='.$torcedor->id.'">
+                            <a href="vaiEmail.php?id=' . $torcedor->id . '">
+                                <button type="button" class="btn btn-info">Email</button>
+                            </a>
+                            <a href="editar.php?id=' . $torcedor->id . '">
                                 <button type="button" class="btn btn-primary">Editar</button>
                             </a>
-                            <a href="excluir.php?id='.$torcedor->id.'">
+                            <a href="excluir.php?id=' . $torcedor->id . '">
                                 <button type="button" class="btn btn-danger">Excluir</button>
                             </a>
+
                         </td>
                     </tr>';
 }
@@ -42,10 +46,10 @@ foreach($torcedores as $torcedor){
 
 
 <main>
-<?=$messagem ?>
+    <?= $messagem ?>
     <section>
 
-        <table class="table mt-2">
+        <table class="table-responsive table-striped mt-2">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -63,7 +67,7 @@ foreach($torcedores as $torcedor){
                 </tr>
             </thead>
             <tbody>
-                <?=$resultados?>
+                <?= $resultados ?>
             </tbody>
     </section>
 

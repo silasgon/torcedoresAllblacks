@@ -73,7 +73,8 @@ class Database{
         return $this->execute($query);
     }
 
-    public function selectEmail($where = null, $order = null, $limit = null, $fields = 'email'){
+    //Busca os emails dos torcedores Ativos
+    public function selectEmailAtivo($where = 'ativo = 1', $order = null, $limit = null, $fields = 'email'){
 
         $where = strlen($where) ? 'WHERE '.$where : '';
         $order = strlen($order) ? 'ORDER BY '.$order : '';
@@ -81,7 +82,17 @@ class Database{
         
         $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
 
-       // echo "<pre>"; echo "Estou na query"; print_r($query);echo "</pre>";exit;
+        return $this->execute($query);
+    }
+
+    //Busca os emails dos torcedores Inativos
+    public function selectEmailInativo($where = 'ativo = \'\'', $order = null, $limit = null, $fields = 'email'){
+
+        $where = strlen($where) ? 'WHERE '.$where : '';
+        $order = strlen($order) ? 'ORDER BY '.$order : '';
+        $limit = strlen($limit) ? 'LIMIT '.$limit : '';
+        
+        $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
 
         return $this->execute($query);
     }

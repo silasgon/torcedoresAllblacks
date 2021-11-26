@@ -32,14 +32,25 @@ if (isset($_GET['status'])) {
 
                     <div class="col-md-4 mb-3">
 
-                        <div class=" custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="email" required>
-                            <label class="custom-control-label" for="customControlValidation2">Todos torcedores</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ativosTorcedores" id="flexCheckChecked" >
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Torcedores Ativos
+                            </label>
                         </div>
- <!--                        <div class="custom-control custom-radio mb-3">
-                            <input type="radio" class="custom-control-input" id="customControlValidation3" name="email2" required>
-                            <label class="custom-control-label" for="customControlValidation3">Torcedores Ativos</label>
-                        </div> -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="inativosTorcedores" id="flexCheckChecked" >
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Torcedores Inativos
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email Torcedor</label>
+                            <input type="email" class="form-control" name="emailUnico"value="<?= $torcedor->email ?>" placeholder="name@example.com">
+                        </div>
+
                     </div>
 
                 </div>

@@ -68,9 +68,14 @@ class Torcedor{
                                             ->fetchObject(self::class);
     }
 
-     public static function getEmailAtivo(){
-        //echo "<pre>"; echo "Estou na consulta"; print_r($fields);echo "</pre>";exit;
-        return (new Database('torcedores'))->selectEmail()
+     public static function getEmailTAtivo(){
+        
+        return (new Database('torcedores'))->selectEmailAtivo()
+                                            ->fetchAll(PDO::FETCH_ASSOC);
+    } 
+     public static function getEmailTInativo(){
+        
+        return (new Database('torcedores'))->selectEmailInativo()
                                             ->fetchAll(PDO::FETCH_ASSOC);
     } 
 }
