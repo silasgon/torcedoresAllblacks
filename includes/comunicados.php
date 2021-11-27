@@ -48,7 +48,7 @@ if (isset($_GET['status'])) {
                     <div class="col-md-4 mb-3">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Email Torcedor</label>
-                            <input type="email" class="form-control" value="<?= isset($torcedor->email) ? $torcedor->email : '' ?>" placeholder="name@example.com">
+                            <input type="email" class="form-control" name="emailUnico" value="<?= isset($torcedor->email) ? $torcedor->email : '' ?>" placeholder="name@example.com">
                         </div>
 
                     </div>
