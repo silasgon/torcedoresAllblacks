@@ -23,7 +23,7 @@
                         <a class="nav-link" href="cadastrar.php">Cadastrar <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="vaiEmail.php">Enviar Comunicado <span class="sr-only"></span></a>
+                        <a class="nav-link" href="enviarEmails.php">Enviar Comunicado <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="lerXml.php">Importar XML <span class="sr-only"></span></a>

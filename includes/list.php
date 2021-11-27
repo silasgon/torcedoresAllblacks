@@ -28,7 +28,7 @@ foreach ($torcedores as $torcedor) {
                         <td>' . $torcedor->uf . '</td>
                         <td>' . ($torcedor->ativo == 1 ? 'Ativo' : 'Inativo') . '</td>
                         <td>
-                            <a href="vaiEmail.php?id=' . $torcedor->id . '">
+                            <a href="umEmail.php?id=' . $torcedor->id . '">
                                 <button type="button" class="btn btn-info">Email</button>
                             </a>
                             <a href="editar.php?id=' . $torcedor->id . '">

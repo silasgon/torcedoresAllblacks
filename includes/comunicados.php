@@ -23,7 +23,7 @@ if (isset($_GET['status'])) {
             </div>
             <hr>
             <br>
-            <form class="needs-validation" method="POST" novalidate>
+            <form method="post"  class="needs-validation" novalidate>
                 <div class="text-left mb-3">
                     <h5>Destinatarios do comunicado</h5>
                 </div>
@@ -33,13 +33,13 @@ if (isset($_GET['status'])) {
                     <div class="col-md-4 mb-3">
 
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ativosTorcedores" id="flexCheckChecked" >
+                            <input class="form-check-input" type="checkbox" name="ativosTorcedores" value="ativo" >
                             <label class="form-check-label" for="flexCheckChecked">
                                 Torcedores Ativos
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="inativosTorcedores" id="flexCheckChecked" >
+                            <input class="form-check-input" type="checkbox" name="inativosTorcedores" value="inativo" >
                             <label class="form-check-label" for="flexCheckChecked">
                                 Torcedores Inativos
                             </label>
@@ -48,7 +48,7 @@ if (isset($_GET['status'])) {
                     <div class="col-md-4 mb-3">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Email Torcedor</label>
-                            <input type="email" class="form-control" name="emailUnico"value="<?= $torcedor->email ?>" placeholder="name@example.com">
+                            <input type="email" class="form-control" value="<?= isset($torcedor->email) ? $torcedor->email : '' ?>" placeholder="name@example.com">
                         </div>
 
                     </div>
